@@ -44,8 +44,8 @@ do_platform_config()
 		./configure --enable-static --enable-shared --host=${ARM_HOSTNAME} --prefix=$HOME/linuxfromscratch/target/$1/$2/$3/$4 \
 		CC="${ARM_TOOL_CHAINS_PREFIX}${LINUX_COMPILER}"
 	elif [ "$3" == "x86" ] ;then		
-		./configure --host= --prefix=$HOME/linuxfromscratch/target/$1/$2/$3/$4 \
-		CC="${ARM_TOOL_CHAINS_PREFIX}${LINUX_COMPILER}"
+		./configure --prefix=$HOME/linuxfromscratch/target/$1/$2/$3/$4 \
+		CC="gcc"
 	else
 		ERR [$FUNCNAME-$LINENO] "unsupport target: $3"
 		exit 1

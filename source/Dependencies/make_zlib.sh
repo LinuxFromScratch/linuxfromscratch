@@ -46,8 +46,8 @@ do_platform_config()
 		./configure --static --enable-shared --prefix=$HOME/linuxfromscratch/target/$1/$2/$3/$4
 		
 	elif [ "$3" == "x86" ] ;then		
-		ERR [$FUNCNAME-$LINENO] "unsupport target: $3"
-		exit 1
+		export CC=gcc
+		./configure --static --enable-shared --prefix=$HOME/linuxfromscratch/target/$1/$2/$3/$4
 	else
 		ERR [$FUNCNAME-$LINENO] "unsupport target: $3"
 		exit 1

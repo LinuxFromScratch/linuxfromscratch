@@ -49,8 +49,12 @@ do_platform_config()
 		CFLAGS="-fPIC -Wall -Wno-format -fno-strict-aliasing -O2" \
 		LDFLAGS="-L$HOME/linuxfromscratch/target/$1/$2/$3/$4/lib" 
 	elif [ "$3" == "x86" ] ;then		
-		ERR [$FUNCNAME-$LINENO] "unsupport target: $3"
-		exit 1
+		options="--enable-silent-rules --enable-static --enable-shared  --disable-java --disable-native-java --disable-largefile --enable-threads=posix --without-git"
+		./configure ${options} \
+		--prefix=$HOME/linuxfromscratch/target/$1/$2/$3/$4 \
+		CC="gcc" \
+		CFLAGS="-fPIC -Wall -Wno-format -fno-strict-aliasing -O2" \
+		LDFLAGS="-L$HOME/linuxfromscratch/target/$1/$2/$3/$4/lib" 
 	else
 		ERR [$FUNCNAME-$LINENO] "unsupport target: $3"
 		exit 1

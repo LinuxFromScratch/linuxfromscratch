@@ -47,8 +47,9 @@ do_platform_config()
 		CFLAGS="-fPIC -Wall -Wno-format -fno-strict-aliasing -O2" 
 		
 	elif [ "$3" == "x86" ] ;then		
-		ERR [$FUNCNAME-$LINENO] "unsupport target: $3"
-		exit 1
+		./configure --enable-static --enable-shared --prefix=$HOME/linuxfromscratch/target/$1/$2/$3/$4 \
+		CC="gcc" \
+		CFLAGS="-fPIC -Wall -Wno-format -fno-strict-aliasing -O2" 
 	else
 		ERR [$FUNCNAME-$LINENO] "unsupport target: $3"
 		exit 1

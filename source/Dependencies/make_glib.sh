@@ -58,8 +58,13 @@ do_platform_config()
 		CFLAGS="-fPIC -Wall -Wno-format -fno-strict-aliasing -O2 -I$HOME/linuxfromscratch/target/$1/$2/$3/$4/include" \
 		LDFLAGS="-L$HOME/linuxfromscratch/target/$1/$2/$3/$4/lib" 	
 	elif [ "$3" == "x86" ] ;then		
-		ERR [$FUNCNAME-$LINENO] "unsupport target: $3"
-		exit 1
+		options="--enable-silent-rules --enable-static --enable-shared --with-pcre=internal --disable-gtk-doc-html --disable-man "
+		cache_options="glib_cv_stack_grows=no glib_cv_uscore=no ac_cv_func_posix_getpwuid_r=no ac_cv_func_posix_getgrgid_r=no"
+		./configure ${options} ${cache_options} \
+		--prefix=$HOME/linuxfromscratch/target/$1/$2/$3/$4 \
+		CC="gcc" \
+		CFLAGS="-fPIC -Wall -Wno-format -fno-strict-aliasing -O2 -I$HOME/linuxfromscratch/target/$1/$2/$3/$4/include" \
+		LDFLAGS="-L$HOME/linuxfromscratch/target/$1/$2/$3/$4/lib" 	
 	else
 		ERR [$FUNCNAME-$LINENO] "unsupport target: $3"
 		exit 1
