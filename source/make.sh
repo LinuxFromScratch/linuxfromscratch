@@ -120,6 +120,8 @@ elif [[ "$soc" == "xilink" ]] ;then
 		ERR [$FUNCNAME-$LINENO] "clibs: $clibs unsupport..."
 		exit 1
 	fi	
+elif [[ "$soc" == "x86" ]] ;then
+	CMD [$FUNCNAME-$LINENO] "soc: $soc "
 else
 	ERR [$FUNCNAME-$LINENO] "soc: $soc unsupport..."
 	exit 1	 

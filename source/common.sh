@@ -170,6 +170,7 @@ dependencies_assert()
 	if [[ "$4" != "goke" ]] \
 	&& [[ "$4" != "hi3518e" ]] \
 	&& [[ "$4" != "hi3518ev200" ]] \
+	&& [[ "$4" != "x86" ]] \
 	&& [[ "$4" != "xilink" ]] ;then
 		ERR [$FUNCNAME-$LINENO] "soc: $4 unsupport..."
 		exit 1	 
