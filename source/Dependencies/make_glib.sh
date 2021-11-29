@@ -55,7 +55,7 @@ do_platform_config()
 		./configure ${options} ${cache_options} --host=${ARM_HOSTNAME}  \
 		--prefix=$HOME/linuxfromscratch/target/$1/$2/$3/$4 \
 		CC="${ARM_TOOL_CHAINS_PREFIX}${LINUX_COMPILER}" \
-		CFLAGS="-fPIC -Wall -Wno-format -fno-strict-aliasing -O2 -I$HOME/linuxfromscratch/target/$1/$2/$3/$4/include" \
+		CFLAGS="-fPIC -Wall -Wno-format -fno-strict-aliasing -O2 -Wno-format-nonliteral -Wno-format-overflow  -Wno-format-security -I$HOME/linuxfromscratch/target/$1/$2/$3/$4/include" \
 		LDFLAGS="-L$HOME/linuxfromscratch/target/$1/$2/$3/$4/lib" 	
 	elif [ "$3" == "x86" ] ;then		
 		options="--enable-silent-rules --enable-static --enable-shared --with-pcre=internal --disable-gtk-doc-html --disable-man "
@@ -63,7 +63,7 @@ do_platform_config()
 		./configure ${options} ${cache_options} \
 		--prefix=$HOME/linuxfromscratch/target/$1/$2/$3/$4 \
 		CC="gcc" \
-		CFLAGS="-fPIC -Wall -Wno-format -fno-strict-aliasing -O2 -I$HOME/linuxfromscratch/target/$1/$2/$3/$4/include" \
+		CFLAGS="-fPIC -Wall -Wno-format -fno-strict-aliasing -O2 -Wno-format-nonliteral -Wno-format-overflow  -Wno-format-security -I$HOME/linuxfromscratch/target/$1/$2/$3/$4/include" \
 		LDFLAGS="-L$HOME/linuxfromscratch/target/$1/$2/$3/$4/lib" 	
 	else
 		ERR [$FUNCNAME-$LINENO] "unsupport target: $3"
