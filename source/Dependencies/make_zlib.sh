@@ -63,7 +63,7 @@ do_platform_config()
 #
 do_make()
 {
-	make && make install
+	make -j8 && make install
 }
 
 #$1 : dirname

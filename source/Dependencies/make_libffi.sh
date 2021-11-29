@@ -82,7 +82,7 @@ do_clean()
 
 do_install()
 {
-	make && make install
+	make -j8 && make install
 }
 
 #$1 : dirname
